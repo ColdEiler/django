@@ -1,0 +1,32 @@
+{% extends 'main/base.html'%}
+
+{% block title %}
+книги
+{% endblock %}
+
+{% block title_1 %}
+книги
+{% endblock %}
+
+
+{% block content %}
+<h1>Книги</h1>
+
+            <div><table class="table">
+                <thead>
+                    <tr>
+                    <th>Название</th>
+                    <th>Количество страниц</th>
+                    <th>Серия</th>
+                    <th>Автор</th>
+                    <th>Издательство</th>
+                    </tr>
+                </thead>
+            <tbody>
+            {% for el in books %}
+                <tr><td>{{el.name}}</td><td>{{el.num_page}}</td><td>{{el.seria}}</td><td>{{el.id_a}}</td><td>{{el.id_ph}}</td><br>
+            {% endfor %}
+            </tbody>
+        </table></div>
+
+{% endblock %}

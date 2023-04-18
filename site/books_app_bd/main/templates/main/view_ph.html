@@ -1,0 +1,29 @@
+{% extends 'main/base.html'%}
+
+{% block title %}
+Издательства
+{% endblock %}
+
+{% block title_1 %}
+Издательства
+{% endblock %}
+
+
+{% block content %}
+<h1> Издательства </h1>
+
+            <div><table class="table">
+                <thead>
+                    <tr>
+                    <th>Название</th>
+                    <th>Страна</th>
+                    </tr>
+                </thead>
+            <tbody>
+            {% for el in ph %}
+                <tr><td>{{el.name}}</td><td>{{el.country}}</td><br>
+            {% endfor %}
+            </tbody>
+        </table></div>
+
+{% endblock %}

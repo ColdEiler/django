@@ -1,0 +1,32 @@
+
+{% extends 'main/base.html'%}
+
+{% block title %}
+ авторы
+{% endblock %}
+
+{% block title_1 %}
+авторы
+{% endblock %}
+
+
+{% block content %}
+<h1>Авторы</h1>
+
+            <div><table class="table">
+                <thead>
+                    <tr>
+                    <th>Имя</th>
+                    <th>Фамилия</th>
+                    <th>Гражданство</th>
+                    <th>Дата Рождения</th>
+                    </tr>
+                </thead>
+            <tbody>
+            {% for el in authors %}
+                <tr><td>{{el.name}}</td><td>{{el.surname}}</td><td>{{el.cit}}</td><td>{{el.birthday}}</td><br>
+            {% endfor %}
+            </tbody>
+        </table></div>
+
+{% endblock %}

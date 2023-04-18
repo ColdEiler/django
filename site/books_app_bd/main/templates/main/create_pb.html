@@ -1,0 +1,24 @@
+{% extends 'main/base.html'%}
+
+{% block title %}
+Создать издательство
+{% endblock %}
+
+{% block title_1 %}
+Издательство
+{% endblock %}
+
+
+{% block content %}
+    <h1>Создать Издательство</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.name }}<br>
+        {{ form.country }}<br>
+        <button type="submit" class="btn btn-success">Добавить</button>
+        <span>{{error}}</span>
+    </form>
+   <br>
+    <a href="view_ph">Посмотреть издательства</a>
+
+    {% endblock %}

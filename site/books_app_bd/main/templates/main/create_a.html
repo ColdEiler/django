@@ -1,0 +1,71 @@
+{% extends 'main/base.html'%}
+
+{% block title %}
+Создать автора
+{% endblock %}
+
+{% block title_1 %}
+Создать автора
+{% endblock %}
+
+
+{% block content %}
+    <script>
+            function f(s1,s2,s3,s4,s5){
+                document.getElementById("name").innerHTML= "Имя";
+                document.getElementById("surname").innerHTML= "Фамилия";
+                document.getElementById("cit").innerHTML= "Гражданство";
+                document.getElementById("birthday").innerHTML= "Дата Рождения";
+
+                document.getElementById("tab1").innerHTML= s1;
+                document.getElementById("tab2").innerHTML= s2;
+                document.getElementById("tab3").innerHTML= s3;
+                document.getElementById("tab4").innerHTML= s4;
+            }
+
+     </script>
+
+
+    <h1>Создать автора</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.name }}<br>
+        {{ form.surname }}<br>
+        {{ form.cit }}<br>
+        {{ form.birthday }}<br>
+        <button type="submit" class="btn btn-success">Добавить</button>
+        <span>{{error}}</span>
+    </form>
+    <br>
+
+
+     <div>
+         {%for el in authors%}
+            <div>
+                <p>{{el.name}}</p>
+                <p>{{el.surname}}</p>
+                <button type="button" class="btn btn-success" onclick="f('{{el.name}}','{{el.surname}}','{{el.cit}}','{{el.birthday}}')">Развернуть</button>
+            </div>
+         {%endfor%}
+         <div>
+                <table class="table">
+                <thead>
+                    <tr>
+                        <th id="name"></th>
+                        <th id ="surname"></th>
+                        <th id = "cit"></th>
+                        <th id = "birthday"></th>
+
+                    </tr>
+                </thead>
+            <tbody>
+                    <tr><td id="tab1"></td><td id="tab2"></td><td id="tab3"></td><td id ="tab4"></td><tr></tr></tr><br>
+            </tbody>
+        </table>
+            </div>
+     </div>
+        <br>
+      <a href="view_a"> Посмотреть всех авторов</a>
+        <br>
+{% endblock %}
+

@@ -1,0 +1,48 @@
+{% extends 'main/base.html'%}
+
+{% block title %}
+Редактировать Книгу
+{% endblock %}
+
+{% block title_1 %}
+Книга
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <form action="{% url 'update' book.pk %}" method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <label class="form-label" for="id_a">Автор</label>
+            <select class="form-select" aria-label="Default select example" name="id_a" required>
+                {% for author in authors %}
+                <option {% if author.pk == book.id_a.pk %}selected="selected"{% endif %} value="{{author.pk}}">{{author.surname}}</option>
+                {% endfor %}
+            </select>
+            <br>
+
+            <label class="form-label" for="id_ph">Издательство</label>
+            <select class="form-select" aria-label="Default select example" name="id_ph" required>
+                {% for el in ph %}
+                <option {% if el.pk == book.id_ph.pk %}selected="selected"{% endif %} value="{{el.pk}}">{{el.name}}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <label class="form-label" for="name">Название книги</label>
+            <input class="form-control" type="text" name="name" value="{{book.name}}" required>
+            <br>
+            <label class="form-label" for="seria">Серия</label>
+            <input class="form-control" type="text" name="seria" value="{{book.seria}}" required>
+            <br>
+            <label class="form-label" for="num_page">Колво страниц</label>
+            <input class="form-control" type="number" name="num_page" value="{{book.num_page}}" required>
+            <br>
+            <input type="submit" class="btn btn-primary">
+
+        </fieldset>
+    </form>
+</div>
+
+
+{% endblock%}
+
+

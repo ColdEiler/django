@@ -1,0 +1,30 @@
+{% extends 'main/base.html'%}
+
+{% block title %}
+Создать Книгу
+{% endblock %}
+
+{% block title_1 %}
+Книга
+{% endblock %}
+
+
+{% block content %}
+    <h1>Создать Книгу</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.name }}<br>
+        {{ form.num_page }}<br>
+        {{ form.seria }}<br>
+        <p>Выберете автора</p>
+        {{ form.id_a }}<br>
+        <p>Выберете издательство</p>
+        {{ form.id_ph }}<br>
+        <br>
+        <button type="submit" class="btn btn-success">Добавить</button>
+        <span>{{error}}</span>
+    </form>
+    <br>
+      <a href="view_b"> Посмотреть все книги</a>
+        <br>
+{% endblock %}
